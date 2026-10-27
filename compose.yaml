@@ -1,0 +1,19 @@
+name: studyagent-demo
+services:
+  db:
+    image: pgvector/pgvector:pg17
+    environment:
+      POSTGRES_USER: studyagent
+      POSTGRES_PASSWORD: studyagent_local
+      POSTGRES_DB: studyagent
+    ports:
+      - '127.0.0.1:55432:5432'
+    volumes:
+      - studyagent-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U studyagent -d studyagent']
+      interval: 3s
+      timeout: 3s
+      retries: 20
+volumes:
+  studyagent-data:

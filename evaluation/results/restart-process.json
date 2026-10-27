@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-27",
+  "test": "Actual uvicorn process termination and restart",
+  "status": "passed",
+  "same_session": true,
+  "same_thread": true,
+  "same_quiz": true,
+  "same_step": true,
+  "provider": "fake",
+  "database": "real PostgreSQL",
+  "steps": [
+    "GET waiting session",
+    "SIGTERM own uvicorn processes",
+    "Restart same configuration",
+    "GET and compare persisted session and quiz"
+  ]
+}

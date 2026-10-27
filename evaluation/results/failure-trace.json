@@ -1,0 +1,10 @@
+{
+  "mode": "fake_test_injection",
+  "event": {
+    "kind": "failure",
+    "payload": {
+      "type": "RuntimeError",
+      "message": "模型或学习工具暂时不可用，记录已保存；修复服务后点击继续。"
+    }
+  }
+}

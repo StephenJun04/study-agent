@@ -1,0 +1,302 @@
+{
+  "recorded_at": "2026-10-26T17:47:17.362524+00:00",
+  "scope": "Clean copied source, new Python 3.12 virtual environment, new PostgreSQL database; explicit fake flow only.",
+  "workspace_id": "studyagent-clean-20261027-j9wir8xk",
+  "database_name": "studyagent_clean_20261027_j9wir8xk",
+  "database_server": "127.0.0.1:55432",
+  "database_creation": {
+    "sql": "CREATE DATABASE \"studyagent_clean_20261027_j9wir8xk\"",
+    "exit_code": 0
+  },
+  "environment": {
+    "STUDYAGENT_PROVIDER": "fake",
+    "USER_ID": "clean-demo",
+    "SEARCH_PROVIDER": "disabled",
+    "DEEPSEEK_API_KEY": "unset"
+  },
+  "copied_env_file": false,
+  "python_runtime": "Bundled Python 3.12; PYTHON_3_12 denotes its executable.",
+  "requirements_sha256": "2fb371a2136460b76ceee39a244b4801ba269dc385e77fbc1aafd9ad6ab2d0bf",
+  "versions": {
+    "python": "3.12.14",
+    "postgresql": "17.11 (Debian 17.11-1.pgdg12+2)",
+    "fastapi": "0.162.0",
+    "langgraph": "1.2.17",
+    "langgraph-checkpoint-postgres": "3.2.0",
+    "psycopg": "3.3.6",
+    "pgvector": "0.5.1",
+    "pydantic": "2.14.1",
+    "uvicorn": "0.54.0",
+    "pytest": "9.1.1",
+    "pgvector_extension": "0.8.7",
+    "node": "v23.10.0"
+  },
+  "commands": [
+    {
+      "name": "venv",
+      "command": [
+        "${PYTHON_3_12}",
+        "-m",
+        "venv",
+        ".venv"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 2.129
+    },
+    {
+      "name": "install",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pip",
+        "install",
+        "-r",
+        "requirements.lock"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 34.819
+    },
+    {
+      "name": "pip-check",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 0.349
+    },
+    {
+      "name": "migrate",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "studyagent.db"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 2.399
+    },
+    {
+      "name": "migrate-repeat",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "studyagent.db"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 0.343
+    },
+    {
+      "name": "preflight",
+      "command": [
+        ".venv/bin/python",
+        "scripts/preflight.py"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 0.386
+    },
+    {
+      "name": "node-version",
+      "command": [
+        "node",
+        "--version"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 0.078
+    },
+    {
+      "name": "node-check",
+      "command": [
+        "node",
+        "--check",
+        "studyagent/static/app.js"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 0.087
+    },
+    {
+      "name": "uvicorn",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "uvicorn",
+        "studyagent.main:app",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8012"
+      ],
+      "exit_code": -15
+    },
+    {
+      "name": "evaluation",
+      "command": [
+        ".venv/bin/python",
+        "scripts/evaluate.py"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 16.666
+    }
+  ],
+  "http_smoke": [
+    {
+      "check": "root HTML",
+      "http_status": 200,
+      "passed": true
+    },
+    {
+      "check": "/static/app.js",
+      "http_status": 200,
+      "passed": true
+    },
+    {
+      "check": "/static/style.css",
+      "http_status": 200,
+      "passed": true
+    },
+    {
+      "check": "health fake/database ready",
+      "http_status": 200,
+      "passed": true
+    },
+    {
+      "check": "create Course",
+      "http_status": 200,
+      "passed": true
+    },
+    {
+      "check": "upload and admission",
+      "http_status": 200,
+      "passed": true
+    },
+    {
+      "check": "overview concepts",
+      "http_status": 200,
+      "passed": true
+    },
+    {
+      "check": "scoped chat with citations",
+      "http_status": 200,
+      "passed": true
+    },
+    {
+      "check": "create persistent quiz",
+      "http_status": 200,
+      "passed": true
+    },
+    {
+      "check": "private grading fields absent",
+      "passed": true
+    },
+    {
+      "check": "wrong answer switches to example",
+      "http_status": 200,
+      "passed": true
+    },
+    {
+      "check": "stop cancels active quiz",
+      "http_status": 200,
+      "passed": true
+    }
+  ],
+  "real_deepseek": {
+    "status": "not_run",
+    "reason": "Explicit fake verification; no secret configured or external generation requested."
+  },
+  "cleanup": {
+    "database": "preserved",
+    "temporary_workspace": "preserved",
+    "uvicorn_stopped": true,
+    "uvicorn_pid": 85420
+  },
+  "lock_match": {
+    "pinned_packages": 71,
+    "mismatches": {}
+  },
+  "preflight": {
+    "database": {
+      "connected": true,
+      "backend": "PostgreSQL"
+    },
+    "real_probe": {
+      "status": "not_run",
+      "reason": "Not requested; health checks do not verify DeepSeek authentication."
+    },
+    "provider": {
+      "provider": "fake",
+      "model": "deterministic-fake",
+      "configured": true,
+      "ready": true,
+      "fake": true,
+      "embedding": "deterministic-hash",
+      "error": null
+    },
+    "mode": "deterministic_fake",
+    "ready_for_requested_checks": true
+  },
+  "tests": {
+    "counts": {
+      "passed": 50,
+      "failed": 0,
+      "error": 0,
+      "skipped": 0
+    },
+    "pytest_exit_code": 0,
+    "seconds": 16.603,
+    "scenarios": [
+      {
+        "id": 1,
+        "name": "missing_prerequisite",
+        "test": "test_prerequisite_then_repeated_success_advances",
+        "contract_test_status": "passed"
+      },
+      {
+        "id": 2,
+        "name": "wrong_after_explanation",
+        "test": "test_full_loop_persistent_resume_idempotent_stop",
+        "contract_test_status": "passed"
+      },
+      {
+        "id": 3,
+        "name": "repeated_success",
+        "test": "test_prerequisite_then_repeated_success_advances",
+        "contract_test_status": "passed"
+      },
+      {
+        "id": 4,
+        "name": "out_of_scope",
+        "test": "test_cross_space_objects_and_chat_scope",
+        "contract_test_status": "passed"
+      },
+      {
+        "id": 5,
+        "name": "multiple_documents",
+        "test": "test_retrieval_diversity_and_citations_use_actual_sources",
+        "contract_test_status": "passed"
+      },
+      {
+        "id": 6,
+        "name": "insufficient_evidence",
+        "test": "test_insufficient_evidence_and_out_of_scope_stop_without_fabrication",
+        "contract_test_status": "passed"
+      },
+      {
+        "id": 7,
+        "name": "unsuitable_material",
+        "test": "test_bad_files_duplicates_and_conflicts_never_enter_retrieval",
+        "contract_test_status": "passed"
+      },
+      {
+        "id": 8,
+        "name": "compressed_context",
+        "test": "test_context_retains_corrections_and_current_state_under_budget",
+        "contract_test_status": "passed"
+      }
+    ]
+  },
+  "warnings": [
+    "PyMuPDF SWIG DeprecationWarning messages were emitted during pytest; no test failures."
+  ],
+  "status": "passed"
+}

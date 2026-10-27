@@ -1,0 +1,432 @@
+{
+  "recorded_at": "2026-10-27T05:30:36.965484+00:00",
+  "scope": "Deterministic workflow and contract verification; not model answer accuracy or learning outcomes.",
+  "deterministic": {
+    "status": "passed",
+    "provider": "fake / explicit model doubles / mocked HTTP",
+    "database": "real PostgreSQL; tests create their own spaces",
+    "pytest_exit_code": 0,
+    "seconds": 18.373,
+    "counts": {
+      "passed": 50,
+      "failed": 0,
+      "error": 0,
+      "skipped": 0
+    },
+    "cases": [
+      {
+        "name": "test_full_loop_persistent_resume_idempotent_stop",
+        "module": "tests.test_api_flow",
+        "status": "passed",
+        "category": "deterministic_with_real_postgresql",
+        "seconds": 3.135
+      },
+      {
+        "name": "test_cross_space_objects_and_chat_scope",
+        "module": "tests.test_api_flow",
+        "status": "passed",
+        "category": "deterministic_with_real_postgresql",
+        "seconds": 0.853
+      },
+      {
+        "name": "test_concurrent_submission_cannot_double_update",
+        "module": "tests.test_api_flow",
+        "status": "passed",
+        "category": "deterministic_with_real_postgresql",
+        "seconds": 0.958
+      },
+      {
+        "name": "test_preference_revision_scope_and_failure_recovery",
+        "module": "tests.test_api_flow",
+        "status": "passed",
+        "category": "deterministic_with_real_postgresql",
+        "seconds": 0.905
+      },
+      {
+        "name": "test_prerequisite_then_repeated_success_advances",
+        "module": "tests.test_api_flow",
+        "status": "passed",
+        "category": "deterministic_with_real_postgresql",
+        "seconds": 1.37
+      },
+      {
+        "name": "test_checkpoint_replay_after_grade_commit_is_idempotent",
+        "module": "tests.test_api_flow",
+        "status": "passed",
+        "category": "deterministic_with_real_postgresql",
+        "seconds": 1.023
+      },
+      {
+        "name": "test_concurrent_sessions_preserve_both_mastery_updates",
+        "module": "tests.test_api_flow",
+        "status": "passed",
+        "category": "deterministic_with_real_postgresql",
+        "seconds": 1.114
+      },
+      {
+        "name": "test_final_successful_submission_can_be_retried_without_tools",
+        "module": "tests.test_api_flow",
+        "status": "passed",
+        "category": "deterministic_with_real_postgresql",
+        "seconds": 1.309
+      },
+      {
+        "name": "test_answer_survives_quiz_commit_before_checkpoint",
+        "module": "tests.test_api_flow",
+        "status": "passed",
+        "category": "deterministic_with_real_postgresql",
+        "seconds": 1.422
+      },
+      {
+        "name": "test_lesson_cites_only_excerpts_actually_sent_after_trimming",
+        "module": "tests.test_api_flow",
+        "status": "passed",
+        "category": "deterministic_with_real_postgresql",
+        "seconds": 0.576
+      },
+      {
+        "name": "test_schema_and_scope_contract",
+        "module": "tests.test_database",
+        "status": "passed",
+        "category": "deterministic_with_real_postgresql",
+        "seconds": 0.062
+      },
+      {
+        "name": "test_ingestion_preserves_page_sources_and_unknown_mastery",
+        "module": "tests.test_knowledge",
+        "status": "passed",
+        "category": "deterministic_with_real_postgresql",
+        "seconds": 0.166
+      },
+      {
+        "name": "test_bad_files_duplicates_and_conflicts_never_enter_retrieval",
+        "module": "tests.test_knowledge",
+        "status": "passed",
+        "category": "deterministic_with_real_postgresql",
+        "seconds": 0.319
+      },
+      {
+        "name": "test_focus_admission_keeps_shared_document_and_independent_mastery",
+        "module": "tests.test_knowledge",
+        "status": "passed",
+        "category": "deterministic_with_real_postgresql",
+        "seconds": 0.368
+      },
+      {
+        "name": "test_cross_space_identifiers_and_other_owners_are_rejected",
+        "module": "tests.test_knowledge",
+        "status": "passed",
+        "category": "deterministic_with_real_postgresql",
+        "seconds": 0.19
+      },
+      {
+        "name": "test_cycle_and_unsupported_edges_are_pending",
+        "module": "tests.test_knowledge",
+        "status": "passed",
+        "category": "deterministic_with_real_postgresql",
+        "seconds": 0.13
+      },
+      {
+        "name": "test_retrieval_diversity_and_citations_use_actual_sources",
+        "module": "tests.test_knowledge",
+        "status": "passed",
+        "category": "deterministic_with_real_postgresql",
+        "seconds": 0.373
+      },
+      {
+        "name": "test_insufficient_evidence_and_out_of_scope_stop_without_fabrication",
+        "module": "tests.test_knowledge",
+        "status": "passed",
+        "category": "deterministic_with_real_postgresql",
+        "seconds": 0.26
+      },
+      {
+        "name": "test_embedding_modes_never_mix",
+        "module": "tests.test_knowledge",
+        "status": "passed",
+        "category": "deterministic_with_real_postgresql",
+        "seconds": 0.156
+      },
+      {
+        "name": "test_citations_cannot_refer_to_provider_omitted_text",
+        "module": "tests.test_knowledge",
+        "status": "passed",
+        "category": "deterministic_with_real_postgresql",
+        "seconds": 0.185
+      },
+      {
+        "name": "test_unsupported_answer_claims_are_withheld",
+        "module": "tests.test_knowledge",
+        "status": "passed",
+        "category": "deterministic_with_real_postgresql",
+        "seconds": 0.204
+      },
+      {
+        "name": "test_pdf_actual_page_numbers",
+        "module": "tests.test_knowledge",
+        "status": "passed",
+        "category": "deterministic_with_real_postgresql",
+        "seconds": 0.195
+      },
+      {
+        "name": "test_web_evidence_is_verified_temporary_and_uses_fixed_hosts",
+        "module": "tests.test_knowledge",
+        "status": "passed",
+        "category": "deterministic_with_real_postgresql",
+        "seconds": 0.162
+      },
+      {
+        "name": "test_web_timeout_is_bounded_and_reported",
+        "module": "tests.test_knowledge",
+        "status": "passed",
+        "category": "deterministic_with_real_postgresql",
+        "seconds": 0.049
+      },
+      {
+        "name": "test_graph_rejects_evidence_omitted_from_final_model_input",
+        "module": "tests.test_knowledge",
+        "status": "passed",
+        "category": "deterministic_with_real_postgresql",
+        "seconds": 0.155
+      },
+      {
+        "name": "test_mastery_unknown_and_repeated_success",
+        "module": "tests.test_learning",
+        "status": "passed",
+        "category": "deterministic_rules",
+        "seconds": 0.0
+      },
+      {
+        "name": "test_wrong_answer_switches_to_example_and_preserves_error",
+        "module": "tests.test_learning",
+        "status": "passed",
+        "category": "deterministic_rules",
+        "seconds": 0.0
+      },
+      {
+        "name": "test_quiz_rejects_duplicate_or_empty_options",
+        "module": "tests.test_learning",
+        "status": "passed",
+        "category": "deterministic_rules",
+        "seconds": 0.0
+      },
+      {
+        "name": "test_real_call_uses_json_schema_and_logs_final_input_without_secrets",
+        "module": "tests.test_providers_context",
+        "status": "passed",
+        "category": "mocked_provider_and_context",
+        "seconds": 0.001
+      },
+      {
+        "name": "test_bad_json_is_repaired_once_with_safe_validation_error",
+        "module": "tests.test_providers_context",
+        "status": "passed",
+        "category": "mocked_provider_and_context",
+        "seconds": 0.001
+      },
+      {
+        "name": "test_repair_exhaustion_raises_instead_of_returning_fake_answer",
+        "module": "tests.test_providers_context",
+        "status": "passed",
+        "category": "mocked_provider_and_context",
+        "seconds": 0.002
+      },
+      {
+        "name": "test_timeout_is_bounded_and_never_falls_back_to_fake",
+        "module": "tests.test_providers_context",
+        "status": "passed",
+        "category": "mocked_provider_and_context",
+        "seconds": 0.001
+      },
+      {
+        "name": "test_authentication_error_is_not_retried_or_exposed",
+        "module": "tests.test_providers_context",
+        "status": "passed",
+        "category": "mocked_provider_and_context",
+        "seconds": 0.001
+      },
+      {
+        "name": "test_missing_key_fails_before_any_request",
+        "module": "tests.test_providers_context",
+        "status": "passed",
+        "category": "mocked_provider_and_context",
+        "seconds": 0.001
+      },
+      {
+        "name": "test_embedding_rejects_wrong_dimension_and_nonfinite_values[bad_vector0]",
+        "module": "tests.test_providers_context",
+        "status": "passed",
+        "category": "mocked_provider_and_context",
+        "seconds": 0.001
+      },
+      {
+        "name": "test_embedding_rejects_wrong_dimension_and_nonfinite_values[bad_vector1]",
+        "module": "tests.test_providers_context",
+        "status": "passed",
+        "category": "mocked_provider_and_context",
+        "seconds": 0.001
+      },
+      {
+        "name": "test_fake_is_explicit_deterministic_and_input_dependent",
+        "module": "tests.test_providers_context",
+        "status": "passed",
+        "category": "mocked_provider_and_context",
+        "seconds": 0.002
+      },
+      {
+        "name": "test_context_retains_corrections_and_current_state_under_budget",
+        "module": "tests.test_providers_context",
+        "status": "passed",
+        "category": "mocked_provider_and_context",
+        "seconds": 0.001
+      },
+      {
+        "name": "test_context_preserves_role_order_and_complete_tool_groups",
+        "module": "tests.test_providers_context",
+        "status": "passed",
+        "category": "mocked_provider_and_context",
+        "seconds": 0.0
+      },
+      {
+        "name": "test_context_raises_when_protected_state_cannot_fit",
+        "module": "tests.test_providers_context",
+        "status": "passed",
+        "category": "mocked_provider_and_context",
+        "seconds": 0.0
+      },
+      {
+        "name": "test_fake_supports_service_payloads_and_server_grading",
+        "module": "tests.test_providers_context",
+        "status": "passed",
+        "category": "mocked_provider_and_context",
+        "seconds": 0.002
+      },
+      {
+        "name": "test_fake_respects_explicit_out_of_scope_input",
+        "module": "tests.test_providers_context",
+        "status": "passed",
+        "category": "mocked_provider_and_context",
+        "seconds": 0.001
+      },
+      {
+        "name": "test_health_probes_only_local_model_inventory_and_never_bills",
+        "module": "tests.test_providers_context",
+        "status": "passed",
+        "category": "mocked_provider_and_context",
+        "seconds": 0.001
+      },
+      {
+        "name": "test_transient_http_failure_retries_and_recovers[429]",
+        "module": "tests.test_providers_context",
+        "status": "passed",
+        "category": "mocked_provider_and_context",
+        "seconds": 0.001
+      },
+      {
+        "name": "test_transient_http_failure_retries_and_recovers[503]",
+        "module": "tests.test_providers_context",
+        "status": "passed",
+        "category": "mocked_provider_and_context",
+        "seconds": 0.001
+      },
+      {
+        "name": "test_context_keeps_explicit_old_user_correction",
+        "module": "tests.test_providers_context",
+        "status": "passed",
+        "category": "mocked_provider_and_context",
+        "seconds": 0.001
+      },
+      {
+        "name": "test_final_input_budget_includes_schema_task_payload_and_context",
+        "module": "tests.test_providers_context",
+        "status": "passed",
+        "category": "mocked_provider_and_context",
+        "seconds": 0.003
+      },
+      {
+        "name": "test_material_preview_truncation_is_explicit_in_model_input",
+        "module": "tests.test_providers_context",
+        "status": "passed",
+        "category": "mocked_provider_and_context",
+        "seconds": 0.002
+      },
+      {
+        "name": "test_fake_teaching_changes_question_with_variant",
+        "module": "tests.test_providers_context",
+        "status": "passed",
+        "category": "mocked_provider_and_context",
+        "seconds": 0.001
+      },
+      {
+        "name": "test_incomplete_tool_metadata_is_omitted_without_crash",
+        "module": "tests.test_providers_context",
+        "status": "passed",
+        "category": "mocked_provider_and_context",
+        "seconds": 0.0
+      }
+    ],
+    "scenarios": [
+      {
+        "id": 1,
+        "name": "missing_prerequisite",
+        "test": "test_prerequisite_then_repeated_success_advances",
+        "contract_test_status": "passed"
+      },
+      {
+        "id": 2,
+        "name": "wrong_after_explanation",
+        "test": "test_full_loop_persistent_resume_idempotent_stop",
+        "contract_test_status": "passed"
+      },
+      {
+        "id": 3,
+        "name": "repeated_success",
+        "test": "test_prerequisite_then_repeated_success_advances",
+        "contract_test_status": "passed"
+      },
+      {
+        "id": 4,
+        "name": "out_of_scope",
+        "test": "test_cross_space_objects_and_chat_scope",
+        "contract_test_status": "passed"
+      },
+      {
+        "id": 5,
+        "name": "multiple_documents",
+        "test": "test_retrieval_diversity_and_citations_use_actual_sources",
+        "contract_test_status": "passed"
+      },
+      {
+        "id": 6,
+        "name": "insufficient_evidence",
+        "test": "test_insufficient_evidence_and_out_of_scope_stop_without_fabrication",
+        "contract_test_status": "passed"
+      },
+      {
+        "id": 7,
+        "name": "unsuitable_material",
+        "test": "test_bad_files_duplicates_and_conflicts_never_enter_retrieval",
+        "contract_test_status": "passed"
+      },
+      {
+        "id": 8,
+        "name": "compressed_context",
+        "test": "test_context_retains_corrections_and_current_state_under_budget",
+        "contract_test_status": "passed"
+      }
+    ]
+  },
+  "real_service_probe": {
+    "status": "not_run",
+    "reason": "No explicit --probe-real request."
+  },
+  "real_answer_quality": {
+    "status": "not_run",
+    "reason": "Requires fixed human-annotated questions and human review."
+  },
+  "baseline_comparison": {
+    "status": "not_run",
+    "scope": "Shared answer/citation capabilities only; baseline=true excludes mastery and preferences."
+  },
+  "human_review": ""
+}

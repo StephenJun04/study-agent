@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-27",
+  "url": "http://127.0.0.1:8001/",
+  "provider": "fake",
+  "database": "real PostgreSQL",
+  "method": "Codex computer-use browser interaction; not human semantic review",
+  "observed_steps": [
+    "create course and upload original demo material",
+    "chat with local file/page citation",
+    "follow-up with explicit correction",
+    "start lesson and wait for real input",
+    "wrong answer produces example and new quiz",
+    "refresh and process restart keep same waiting quiz",
+    "correct answer increases attempts once",
+    "continue and stop; stopped session has no quiz",
+    "keyboard Home selects first feature tab"
+  ],
+  "viewport_width": 624,
+  "document_scroll_width": 624,
+  "console_error_warning_entries": 0,
+  "screenshot": "demo-ui.png",
+  "deepseek_generation": "not_run_missing_key",
+  "human_content_review": "not_run"
+}

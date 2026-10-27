@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#254c40">
+  <meta name="description" content="以你的课程资料为依据，循序理解、练习和验证知识的本地学习工作台。">
+  <title>StudyAgent · 学习工作台</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <svg class="icon-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 5.5C8.6 3.7 5.3 3.7 2.5 5v14c2.8-1.3 6.1-1.3 9.5.5 3.4-1.8 6.7-1.8 9.5-.5V5C18.7 3.7 15.4 3.7 12 5.5Zm0 0v14"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5H4l-2 2V11.5A8.5 8.5 0 0 1 10.5 3h2a8.5 8.5 0 0 1 8.5 8.5Z"/><path d="M7 9h9M7 14h6"/></symbol>
+    <symbol id="i-path" viewBox="0 0 24 24"><circle cx="5" cy="5" r="2"/><circle cx="19" cy="19" r="2"/><path d="M7 5h8a4 4 0 0 1 0 8H9a3 3 0 0 0 0 6h8"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H5v20h14V7Zm0 0v5h5M8 12h8M8 16h6"/></symbol>
+    <symbol id="i-focus" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3"/></symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V3m-5 5 5-5 5 5M4 15v6h16v-6"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 3h7v7m0-7L10 14M10 3H3v18h18v-7"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M5.1 8a8 8 0 0 1 13.1-3L20 8M4 16l1.8 3A8 8 0 0 0 18.9 16"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 3 2.4 6.6L21 12l-6.6 2.4L12 21l-2.4-6.6L3 12l6.6-2.4Z"/></symbol>
+  </svg>
+
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar" aria-label="学习空间">
+      <a class="brand" href="/" aria-label="StudyAgent 首页"><span class="brand-mark"><svg class="icon"><use href="#i-book"/></svg></span><span>StudyAgent<small>把知识学明白</small></span></a>
+      <button class="button primary new-space" id="new-space"><svg class="icon"><use href="#i-plus"/></svg>新建学习空间</button>
+      <div class="sidebar-section-heading"><span>我的空间</span><span id="space-count" class="count">0</span></div>
+      <nav id="space-list" class="space-list" aria-label="切换课程或专注空间"></nav>
+      <p class="sidebar-empty" id="space-list-empty">为一门课程或一个问题，<br>留出专注学习的地方。</p>
+      <div class="sidebar-footer">
+        <div class="local-label"><span class="status-dot"></span>本地工作台 <span class="version">DEMO</span></div>
+        <p>学习记录保存在本机。<br>回答以当前空间的资料为依据。</p>
+      </div>
+    </aside>
+
+    <div class="workspace">
+      <header class="topbar">
+        <div class="breadcrumb"><button class="icon-button mobile-menu" id="menu-toggle" aria-label="打开学习空间" aria-expanded="false"><svg class="icon"><use href="#i-menu"/></svg></button><span>学习工作台</span><span class="breadcrumb-divider">/</span><strong id="breadcrumb-name">开始学习</strong></div>
+        <div class="connection"><span class="provider-badge" id="provider-badge"><span class="status-dot"></span>正在连接</span><button class="icon-button" id="refresh-app" aria-label="刷新数据和连接状态" title="刷新数据和连接状态"><svg class="icon"><use href="#i-refresh"/></svg></button></div>
+      </header>
+      <div class="system-banner" id="system-banner" role="status" hidden></div>
+      <div class="global-error" id="global-error" role="alert" hidden></div>
+
+      <main id="main" tabindex="-1">
+        <section class="welcome" id="welcome">
+          <div class="welcome-label"><span class="tiny-line"></span> YOUR PERSONAL LEARNING SPACE</div>
+          <h1>从一份资料开始，<br>让理解一步步发生。</h1>
+          <p class="welcome-copy">带上你的课件、笔记和问题。<br>在有依据的对话中理解，在一次次练习中检验。</p>
+          <div class="welcome-actions"><button class="button primary" id="welcome-course">创建课程空间 <svg class="icon"><use href="#i-arrow"/></svg></button><button class="button secondary" id="welcome-focus"><svg class="icon"><use href="#i-focus"/></svg>专注一个问题</button></div>
+          <div class="welcome-illustration" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="knowledge-center"><svg class="icon"><use href="#i-book"/></svg></div><span class="knowledge-point point-one">资料</span><span class="knowledge-point point-two">理解</span><span class="knowledge-point point-three">练习</span><span class="knowledge-point point-four">连接</span><span class="orbit-dot dot-one"></span><span class="orbit-dot dot-two"></span></div>
+          <div class="onboarding-steps"><article><span class="step-number">01</span><h2>带入你的资料</h2><p>上传 PDF、文本或 Markdown，<br>为每个回答保留可追溯的出处。</p></article><article><span class="step-number">02</span><h2>从问题走向概念</h2><p>自由追问，或选一个学习目标，<br>沿着概念之间的联系逐步深入。</p></article><article><span class="step-number">03</span><h2>用练习检验理解</h2><p>提交答案后获得反馈，<br>学习进度随真实作答更新。</p></article></div>
+        </section>
+
+        <section class="active-workspace" id="active-workspace" hidden>
+          <header class="space-header"><div><div class="eyebrow" id="space-kind">课程空间</div><h1 id="space-name"></h1><p id="space-topic"></p></div><div class="space-summary" id="space-summary"></div></header>
+          <div class="content-grid">
+            <div class="study-column">
+              <div class="tabbar" role="tablist" aria-label="学习功能"><button class="tab active" id="tab-chat" role="tab" aria-selected="true" aria-controls="panel-chat" data-tab="chat"><svg class="icon"><use href="#i-chat"/></svg>对话</button><button class="tab" id="tab-learn" role="tab" aria-selected="false" aria-controls="panel-learn" tabindex="-1" data-tab="learn"><svg class="icon"><use href="#i-path"/></svg>引导学习</button><button class="tab" id="tab-materials" role="tab" aria-selected="false" aria-controls="panel-materials" tabindex="-1" data-tab="materials"><svg class="icon"><use href="#i-file"/></svg>资料库 <span id="document-count" class="tab-count">0</span></button></div>
+
+              <section class="panel chat-panel" id="panel-chat" role="tabpanel" aria-labelledby="tab-chat">
+                <div class="chat-toolbar"><span><span class="status-dot"></span>当前空间内的连续对话</span><button class="text-button" id="new-chat">新对话</button></div>
+                <div class="chat-messages" id="chat-messages" role="log" aria-label="对话记录" aria-live="polite" aria-relevant="additions"></div>
+                <form id="chat-form" class="composer"><label class="sr-only" for="chat-input">向 StudyAgent 提问</label><textarea id="chat-input" rows="2" placeholder="写下你的问题，或继续追问…" required maxlength="12000"></textarea><div class="composer-bottom"><span id="chat-hint">Enter 发送 · Shift + Enter 换行</span><button class="send-button" type="submit" id="chat-send" aria-label="发送问题"><svg class="icon"><use href="#i-arrow"/></svg></button></div><p class="inline-error" id="chat-error" role="alert" hidden></p></form>
+                <p class="panel-footnote">资料中的原文会显示在「本次证据」中。没有足够依据时，回答应明确说明。</p>
+              </section>
+
+              <section class="panel learn-panel" id="panel-learn" role="tabpanel" aria-labelledby="tab-learn" hidden>
+                <div class="section-intro"><span class="eyebrow">LEARN WITH A GOAL</span><h2>选一个概念，从讲解到练习。</h2><p>解释、例子、练习与反馈，围绕同一个目标循序展开。</p></div>
+                <form id="goal-form" class="goal-form"><label for="goal-concept">本次学习目标</label><div class="inline-fields"><select id="goal-concept" required><option value="">上传资料后选择概念</option></select><button class="button primary" id="start-learning" type="submit">开始学习 <svg class="icon"><use href="#i-arrow"/></svg></button></div></form>
+                <p class="inline-error" id="learn-error" role="alert" hidden></p>
+                <div id="session-content" class="session-content" aria-live="polite"></div>
+                <div class="concept-section"><div class="section-heading"><h2>概念与掌握情况</h2><span id="concept-count" class="muted"></span></div><p class="helper">只展示由作答记录更新的掌握情况；尚未练习的概念标为「未测评」。</p><div id="concept-list" class="concept-list"></div></div>
+              </section>
+
+              <section class="panel materials-panel" id="panel-materials" role="tabpanel" aria-labelledby="tab-materials" hidden>
+                <div class="section-intro"><span class="eyebrow">YOUR KNOWLEDGE, GROUNDED</span><h2>让每一次理解都有出处。</h2><p>资料会先校验与当前主题的相关性，通过后用于回答与学习。</p></div>
+                <form id="upload-form" class="upload-form"><label class="upload-drop" for="document-file"><span class="upload-symbol"><svg class="icon"><use href="#i-upload"/></svg></span><strong id="file-label">选择一份学习资料</strong><span>PDF、TXT 或 Markdown</span><input id="document-file" type="file" accept=".pdf,.txt,.md,.markdown" required></label><label for="source-url">原始来源链接 <span class="optional">选填</span></label><input id="source-url" type="url" placeholder="https://…（记录出处，不会抓取网页）"><div class="upload-footer"><span class="helper" id="upload-help">文件将归属于当前学习空间。</span><button class="button primary" type="submit" id="upload-submit">上传并校验</button></div><p id="upload-result" class="form-result" role="status" hidden></p><p class="inline-error" id="upload-error" role="alert" hidden></p></form>
+                <div class="section-heading"><h2>空间资料</h2><span class="muted" id="material-summary"></span></div><div id="document-list" class="document-list"></div>
+                <div class="focus-admit-note" id="focus-admit-note" hidden><svg class="icon"><use href="#i-book"/></svg><p>专注空间的资料可以纳入课程。纳入后会在课程主题下重新校验；两个空间的掌握记录独立保存。</p></div>
+              </section>
+            </div>
+
+            <aside class="context-column" aria-label="学习依据与状态">
+              <section class="context-card map-card"><div class="section-heading"><h2>知识连接</h2><span class="small-label">当前空间</span></div><div id="concept-graph" class="concept-graph"></div><details id="graph-details"><summary>查看概念关系</summary><div id="graph-relations" class="relation-list"></div></details></section>
+              <section class="context-card evidence-card"><div class="section-heading"><h2>本次证据</h2><span id="evidence-count" class="count">0</span></div><div id="evidence-list" class="evidence-list"><p class="empty-small">提问或开始学习后，相关原文、页码和出处会出现在这里。</p></div></section>
+              <section class="context-card"><details id="trace-details"><summary class="card-summary"><span>决策轨迹</span><span class="small-label">可检查</span></summary><p class="helper">查看检索、学习调度和状态更新的简要依据。</p><button class="text-button" id="refresh-traces">刷新轨迹</button><div id="trace-list" class="trace-list"></div></details></section>
+              <section class="context-card"><details id="preferences-details"><summary class="card-summary"><span>学习偏好</span><svg class="icon small"><use href="#i-spark"/></svg></summary><form id="preference-form"><label for="preference-input">希望怎样讲解？</label><textarea id="preference-input" rows="3" maxlength="1500" placeholder="例如：先给直觉解释，再推导公式。" required></textarea><p class="helper">偏好经校验后保存到当前空间。</p><button class="button secondary" id="save-preference" type="submit">保存偏好</button><p id="preference-result" class="form-result" role="status" hidden></p><p id="preference-error" class="inline-error" role="alert" hidden></p></form><div id="memory-list" class="memory-list"></div></details></section>
+            </aside>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <dialog id="space-dialog" class="space-dialog" aria-labelledby="space-dialog-title"><form id="space-form"><div class="dialog-heading"><div><span class="eyebrow">A NEW BEGINNING</span><h2 id="space-dialog-title">新建学习空间</h2></div><button class="icon-button" id="close-dialog" type="button" aria-label="关闭"><svg class="icon"><use href="#i-close"/></svg></button></div><p class="dialog-description">把相关的资料、问题和学习记录放在一起。</p><fieldset class="space-kind-picker"><legend>空间类型</legend><label><input type="radio" name="kind" value="course" checked><span><svg class="icon"><use href="#i-book"/></svg><strong>课程空间</strong><small>围绕一门课程，持续积累</small></span></label><label><input type="radio" name="kind" value="focus"><span><svg class="icon"><use href="#i-focus"/></svg><strong>专注空间</strong><small>围绕一个主题，深入探索</small></span></label></fieldset><label for="space-name-input">空间名称</label><input id="space-name-input" name="name" placeholder="例如：自然语言处理" required maxlength="100"><label for="space-topic-input">主题范围</label><textarea id="space-topic-input" name="topic" placeholder="例如：语言模型、词向量与 Transformer。资料会按这个范围校验。" rows="3" required maxlength="2000"></textarea><p class="inline-error" id="space-error" role="alert" hidden></p><div class="dialog-footer"><button class="button secondary" id="cancel-dialog" type="button">取消</button><button class="button primary" id="create-space" type="submit">创建空间 <svg class="icon"><use href="#i-arrow"/></svg></button></div></form></dialog>
+  <div class="toast" id="toast" role="status" hidden></div>
+</body>
+</html>

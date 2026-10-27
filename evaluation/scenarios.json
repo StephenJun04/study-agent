@@ -1,0 +1,18 @@
+{
+  "version": "2026-10-26-demo",
+  "fixed_before_evaluation": true,
+  "human_review": "not_run",
+  "scope": "Prototype action/contract verification. Fake-provider results do not measure answer quality.",
+  "scenarios": [
+    {"id":1,"name":"missing_prerequisite","input":"学习梯度下降；前置导数状态 unknown","expected":"先教导数，不跳过前置","test":"test_prerequisite_then_repeated_success_advances"},
+    {"id":2,"name":"wrong_after_explanation","input":"选择本次测验的错误选项","expected":"记一次错误、example 模式、新 quiz ID","test":"test_full_loop_persistent_resume_idempotent_stop"},
+    {"id":3,"name":"repeated_success","input":"对同一前置概念连续两次正确作答","expected":"score>=0.8、streak=2、推进目标","test":"test_prerequisite_then_repeated_success_advances"},
+    {"id":4,"name":"out_of_scope","input":"这个问题与当前课程无关；另传入其他空间 concept/chat ID","expected":"clarify 或 404，不泄露其他空间","test":"test_cross_space_objects_and_chat_scope"},
+    {"id":5,"name":"multiple_documents","input":"What is gradient descent? 两份材料分别支持解释","expected":"引用真实召回的两份文档，quote 为原文子串","test":"test_retrieval_diversity_and_citations_use_actual_sources"},
+    {"id":6,"name":"insufficient_evidence","input":"Uncovered fact?","expected":"验证网页后使用，或明确 gap，不能编造证据","test":"test_insufficient_evidence_and_out_of_scope_stop_without_fabrication"},
+    {"id":7,"name":"unsuitable_material","input":"损坏 PDF、重复文件、与已存资料冲突的文件","expected":"rejected/duplicate/conflict 不进入检索","test":"test_bad_files_duplicates_and_conflicts_never_enter_retrieval"},
+    {"id":8,"name":"compressed_context","input":"多轮长历史；纠正：之后统一用列向量表示输入。","expected":"最终模型输入保留空间、概念、纠正且受 token 预算限制","test":"test_context_retains_corrections_and_current_state_under_budget"}
+  ],
+  "answer_rubric": {"reference_consistency":"0 incorrect / 1 partially correct / 2 correct and sufficient; human required","citation_support":"verify every quote occurs in actually visible evidence and supports its associated claim; human semantic check required"},
+  "baseline": "Same Knowledge.retrieve/settings/provider/answer generation, baseline=true omits mastery and preferences. Only answer/citation capabilities compared; no action score. Real comparison not run without DeepSeek key."
+}

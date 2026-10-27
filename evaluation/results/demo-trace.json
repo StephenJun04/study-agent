@@ -1,0 +1,174 @@
+{
+  "mode": "fake",
+  "events": [
+    {
+      "kind": "retrieve",
+      "payload": {
+        "call_id": "2aae6f26-47a4-46d7-abdf-386a677965b2",
+        "concept_id": "d600088d-d92f-5a0d-9f0c-70223d79cebe",
+        "evidence_ids": [
+          "15b41f57-633f-49b6-980c-6ab662d45979"
+        ]
+      },
+      "created_at": "2026-10-26T12:40:24.889807+00:00"
+    },
+    {
+      "kind": "retrieval_validation",
+      "payload": {
+        "reason": "[fake 流程测试] 仅验证是否传入证据；未进行真实语义核验。",
+        "missing": [],
+        "in_scope": true,
+        "conflicts": [],
+        "sufficient": true
+      },
+      "created_at": "2026-10-26T12:40:24.969049+00:00"
+    },
+    {
+      "kind": "teach_and_quiz",
+      "payload": {
+        "result": "quiz_created_waiting",
+        "call_id": "d3f193b8-6eb6-4300-a1e4-cb5878daa7fd",
+        "quiz_id": "8d8306c4-0658-4e52-b18e-7b9dbab496a7",
+        "decision": {
+          "action": "explanation",
+          "reason": "根据当前掌握状态选择教学方式。",
+          "space_id": "44dda38d-e740-4a51-af40-8fccf8d051d5",
+          "concept_id": "d600088d-d92f-5a0d-9f0c-70223d79cebe",
+          "evidence_ids": [
+            "15b41f57-633f-49b6-980c-6ab662d45979"
+          ]
+        }
+      },
+      "created_at": "2026-10-26T12:40:25.099483+00:00"
+    },
+    {
+      "kind": "assess_and_update",
+      "payload": {
+        "correct": false,
+        "mastery": {
+          "score": 0.2,
+          "errors": [
+            "忽略所给资料，任意猜测结论 → 这次回答不正确。正确选项复述了本次提供的原文：# 梯度下降学习材料（原创演示样例）\n\n本材料用于 StudyAgent 的程序演示，由项目编写者整理，不是经教师审核的正式课件。内容采用标准的一元微积分与梯度下降定义。建议用公开课程原文替换以进行真实评估。\n\n## 导数 Derivative\n导数描述一个函数在某一点附近的瞬时变化率。对一元函数 f(x)=x²，导数"
+          ],
+          "streak": 0,
+          "attempts": 1
+        },
+        "quiz_id": "8d8306c4-0658-4e52-b18e-7b9dbab496a7",
+        "submission_id": "9cf83ff3-395d-4b5b-83a8-0fd4c8e11f8a",
+        "memory_validation": {
+          "source": "8d8306c4-0658-4e52-b18e-7b9dbab496a7",
+          "valid_history": true
+        }
+      },
+      "created_at": "2026-10-26T12:41:10.917828+00:00"
+    },
+    {
+      "kind": "retrieve",
+      "payload": {
+        "call_id": "346ab76e-5a10-4892-ae7f-857728a9ecc4",
+        "concept_id": "d600088d-d92f-5a0d-9f0c-70223d79cebe",
+        "evidence_ids": [
+          "15b41f57-633f-49b6-980c-6ab662d45979"
+        ]
+      },
+      "created_at": "2026-10-26T12:41:11.114787+00:00"
+    },
+    {
+      "kind": "retrieval_validation",
+      "payload": {
+        "reason": "[fake 流程测试] 仅验证是否传入证据；未进行真实语义核验。",
+        "missing": [],
+        "in_scope": true,
+        "conflicts": [],
+        "sufficient": true
+      },
+      "created_at": "2026-10-26T12:41:11.148496+00:00"
+    },
+    {
+      "kind": "teach_and_quiz",
+      "payload": {
+        "result": "quiz_created_waiting",
+        "call_id": "23ad054a-a2ff-4003-9bc6-adec25a6bf45",
+        "quiz_id": "3e4227bb-42bb-49e6-a005-c0f7ed20242f",
+        "decision": {
+          "action": "example",
+          "reason": "正式讲解后作答错误，改用具体例子并重新测验。",
+          "space_id": "44dda38d-e740-4a51-af40-8fccf8d051d5",
+          "concept_id": "d600088d-d92f-5a0d-9f0c-70223d79cebe",
+          "evidence_ids": [
+            "15b41f57-633f-49b6-980c-6ab662d45979"
+          ]
+        }
+      },
+      "created_at": "2026-10-26T12:41:11.198114+00:00"
+    },
+    {
+      "kind": "assess_and_update",
+      "payload": {
+        "correct": true,
+        "mastery": {
+          "score": 0.45,
+          "errors": [
+            "忽略所给资料，任意猜测结论 → 这次回答不正确。正确选项复述了本次提供的原文：# 梯度下降学习材料（原创演示样例）\n\n本材料用于 StudyAgent 的程序演示，由项目编写者整理，不是经教师审核的正式课件。内容采用标准的一元微积分与梯度下降定义。建议用公开课程原文替换以进行真实评估。\n\n## 导数 Derivative\n导数描述一个函数在某一点附近的瞬时变化率。对一元函数 f(x)=x²，导数"
+          ],
+          "streak": 1,
+          "attempts": 2
+        },
+        "quiz_id": "3e4227bb-42bb-49e6-a005-c0f7ed20242f",
+        "submission_id": "0b5f1bf5-43c9-48ec-8d56-fe4406bd2ad6",
+        "memory_validation": {
+          "source": "3e4227bb-42bb-49e6-a005-c0f7ed20242f",
+          "valid_history": true
+        }
+      },
+      "created_at": "2026-10-26T17:44:18.335027+00:00"
+    },
+    {
+      "kind": "retrieve",
+      "payload": {
+        "call_id": "a35db848-3b25-49e2-b933-51bf92fd541e",
+        "concept_id": "d600088d-d92f-5a0d-9f0c-70223d79cebe",
+        "evidence_ids": [
+          "15b41f57-633f-49b6-980c-6ab662d45979"
+        ]
+      },
+      "created_at": "2026-10-26T17:44:18.516808+00:00"
+    },
+    {
+      "kind": "retrieval_validation",
+      "payload": {
+        "reason": "[fake 流程测试] 仅验证是否传入证据；未进行真实语义核验。",
+        "missing": [],
+        "in_scope": true,
+        "conflicts": [],
+        "sufficient": true
+      },
+      "created_at": "2026-10-26T17:44:18.554347+00:00"
+    },
+    {
+      "kind": "teach_and_quiz",
+      "payload": {
+        "result": "quiz_created_waiting",
+        "call_id": "aac9c317-3b37-4747-b536-f9e7af40c20d",
+        "quiz_id": "831e60cc-7f8f-4fe7-9ea0-5a43aaef6879",
+        "decision": {
+          "action": "quiz",
+          "reason": "根据当前掌握状态选择教学方式。",
+          "space_id": "44dda38d-e740-4a51-af40-8fccf8d051d5",
+          "concept_id": "d600088d-d92f-5a0d-9f0c-70223d79cebe",
+          "evidence_ids": [
+            "15b41f57-633f-49b6-980c-6ab662d45979"
+          ]
+        }
+      },
+      "created_at": "2026-10-26T17:44:18.624038+00:00"
+    },
+    {
+      "kind": "stop",
+      "payload": {
+        "reason": "用户主动停止；不再执行工具。"
+      },
+      "created_at": "2026-10-26T17:46:02.144835+00:00"
+    }
+  ]
+}
